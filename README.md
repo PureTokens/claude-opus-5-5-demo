@@ -1,12 +1,20 @@
 <h1 align="center">claude-opus-5-5-demo</h1>
 
-> PureTokens 整理版，fork 自 [riba2534 的原项目](https://github.com/riba2534/claude-opus-5-5-demo)。三个游戏由原作者制作；以下生成过程与上游演示地址来自原项目。本 fork 增加了静态站点入口及构建脚本，并更新站内链接：[PureTokens GitHub](https://github.com/PureTokens/claude-opus-5-5-demo) · [PureTokens X](https://x.com/pure_tokens)。
+> PureTokens 整理版，fork 自 [riba2534 的原项目](https://github.com/riba2534/claude-opus-5-5-demo)。三个游戏由原作者制作；以下生成过程与上游演示地址来自原项目。本 fork 增加了独立静态资源构建脚本，并更新站内链接：[PureTokens GitHub](https://github.com/PureTokens/claude-opus-5-5-demo) · [PureTokens X](https://x.com/pure_tokens)。
 >
 > **授权状态：**上游未提供开源许可证。本仓库公开展示并保留 fork 关系与原作者署名，但不表示原游戏已获开放源代码许可，也不为原作者的代码另行授权。
 
-## 合并部署为一个静态站点
+## 三个独立静态资源
 
-在三个子目录分别执行 `npm ci --omit=dev` 安装构建依赖后，在仓库根目录执行 `node build-static.mjs`。产物在 `static-site/`，将此目录的**内容**上传到静态网站根目录即可；根路径是游戏选择页，三个游戏分别在 `/pelican-bike/`、`/cf-transport-ship/`、`/qq-speed/`。也可以将 `static-site/` 压缩后上传到支持解压部署的平台。站点不需要 Node.js 服务端。
+在 `pelican-bike/`、`cf-transport-ship/`、`qq-speed/` 三个目录分别执行 `npm ci --omit=dev` 安装依赖，然后在仓库根目录执行 `node build-static.mjs`（打包 ZIP 需要系统安装 `zip` 命令）。脚本输出三个互不依赖的站点目录和压缩包：
+
+| 游戏 | 独立站点目录 | 单独上传的压缩包 |
+| --- | --- | --- |
+| 鹈鹕骑自行车 | `static-assets/pelican-bike/` | `static-assets/pelican-bike.zip` |
+| 穿越火线·运输船 | `static-assets/cf-transport-ship/` | `static-assets/cf-transport-ship.zip` |
+| QQ 飞车 | `static-assets/qq-speed/` | `static-assets/qq-speed.zip` |
+
+每个目录和 ZIP 中都只有一个自包含的 `index.html`。分别把目录内容或对应 ZIP 部署到三个静态站点的根目录即可，不需要 Node.js 服务端，也没有聚合首页。
 
 <p align="center">
   <b>一句话提示词 · One Shot —— Claude Opus 5.5 代码生成能力实测</b>

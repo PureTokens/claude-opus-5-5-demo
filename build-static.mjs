@@ -4,10 +4,10 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
-const output = join(root, 'static-site');
+const output = join(root, 'static-assets');
 const games = ['pelican-bike', 'cf-transport-ship', 'qq-speed'];
 
-// Each existing build produces a self-contained HTML file.
+// Each game is an independent, self-contained static site.
 for (const game of games) {
   const cwd = join(root, game);
   execFileSync('node', ['build.mjs'], { cwd, stdio: 'inherit' });
@@ -15,9 +15,10 @@ for (const game of games) {
 
 rmSync(output, { recursive: true, force: true });
 mkdirSync(output);
-copyFileSync(join(root, 'static-index.html'), join(output, 'index.html'));
 for (const game of games) {
-  mkdirSync(join(output, game));
-  copyFileSync(join(root, game, 'dist', 'index.html'), join(output, game, 'index.html'));
+  const site = join(output, game);
+  mkdirSync(site);
+  copyFileSync(join(root, game, 'dist', 'index.html'), join(site, 'index.html'));
+  execFileSync('zip', ['-q', join(output, `${game}.zip`), 'index.html'], { cwd: site });
 }
-console.log(`Static site ready: ${output}`);
+console.log(`Three independent static sites and ZIP files are ready: ${output}`);
