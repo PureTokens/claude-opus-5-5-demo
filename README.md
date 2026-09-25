@@ -1,6 +1,6 @@
 <h1 align="center">claude-opus-5-5-demo</h1>
 
-> PureTokens 整理版，fork 自 [riba2534 的原项目](https://github.com/riba2534/claude-opus-5-5-demo)。三个游戏由原作者制作；以下生成过程与上游演示地址来自原项目。本 fork 增加了独立静态资源构建脚本，并更新站内链接：[PureTokens GitHub](https://github.com/PureTokens/claude-opus-5-5-demo) · [PureTokens X](https://x.com/pure_tokens)。
+> PureTokens 整理版，fork 自 [riba2534 的原项目](https://github.com/riba2534/claude-opus-5-5-demo)。三个游戏由原作者制作；以下生成过程来自原项目，在线体验地址指向 PureTokens 部署。本 fork 增加了独立静态资源构建脚本，并更新站内链接：[PureTokens GitHub](https://github.com/PureTokens/claude-opus-5-5-demo) · [PureTokens X](https://x.com/pure_tokens)。
 >
 > **授权状态：**上游未提供开源许可证。本仓库公开展示并保留 fork 关系与原作者署名，但不表示原游戏已获开放源代码许可，也不为原作者的代码另行授权。
 
@@ -26,7 +26,7 @@
   <a href="https://www.anthropic.com/claude/opus"><img src="https://img.shields.io/badge/Claude-Opus%205.5-D97757?style=for-the-badge" alt="Claude Opus 5.5" /></a>
   <img src="https://img.shields.io/badge/Three.js-r186-049EF4?style=for-the-badge&logo=threedotjs&logoColor=white" alt="Three.js r186" />
   <img src="https://img.shields.io/badge/esbuild-%E2%89%A50.28-FFCF00?style=for-the-badge&logo=esbuild&logoColor=black" alt="esbuild" />
-  <a href="https://pages.cloudflare.com/"><img src="https://img.shields.io/badge/部署-Cloudflare%20Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Pages" /></a>
+  <img src="https://img.shields.io/badge/部署-StepCloud-6089D5?style=for-the-badge" alt="StepCloud" />
   <img src="https://img.shields.io/badge/提示词-每游戏%201%20句-8A2BE2?style=for-the-badge" alt="One-shot" />
 </p>
 
@@ -34,7 +34,7 @@
   <a href="#这个仓库是什么">介绍</a> ·
   <a href="#三个游戏">三个游戏</a> ·
   <a href="#提示词原文">提示词原文</a> ·
-  <a href="#上游在线体验">上游在线体验</a> ·
+  <a href="#在线体验">在线体验</a> ·
   <a href="#本地构建">本地构建</a> ·
   <a href="#仓库结构">仓库结构</a> ·
   <a href="#生成过程与验证">生成过程与验证</a>
@@ -51,7 +51,7 @@
 - **一句话提示词** — 每个游戏的需求描述只有一句话，不写需求文档、不给参考代码、不做多轮追问
 - **单会话生成** — 每个游戏在一个会话内完成：查资料、搭工程、写代码、构建、测试、部署全部由模型自主进行
 - **原版零人工改动** — 原作者称生成后的代码没有人工改动；本 fork 已修改站内链接、构建配置和 README
-- **真实部署** — 三个游戏都部署在 Cloudflare Pages 上，点开链接即可玩
+- **PureTokens 部署地址** — 三个游戏的 StepCloud 地址列在下方
 
 三个游戏全部是单文件 HTML（esbuild 打包内联，无外部资源依赖）：模型、纹理、动画、音效全部由代码程序化生成，不引用任何图片、音频或第三方素材。
 
@@ -59,9 +59,9 @@
 
 | 游戏 | 类型 | 源码目录 | 模块数 | 构建产物 | 在线体验 |
 | --- | --- | --- | --- | --- | --- |
-| 🚲 鹈鹕骑自行车 | 海岸公路休闲骑行 | `pelican-bike/` | 11 个 JS 模块 | ~800 KB | [claude-opus-5-5.riba2534.cn](https://claude-opus-5-5.riba2534.cn/) |
-| 🔫 穿越火线·运输船 | FPS 团队枪战 | `cf-transport-ship/` | 18 个 JS 模块 + HTML/CSS | ~840 KB | [claude-opus-5-5-cf-transport-ship.pages.dev](https://claude-opus-5-5-cf-transport-ship.pages.dev) |
-| 🏎️ QQ 飞车 | 竞速漂移 racing | `qq-speed/` | 15 个 JS 模块 + HTML | ~700 KB | [claude-opus-5-5-qqfeiche3d.pages.dev](https://claude-opus-5-5-qqfeiche3d.pages.dev/) |
+| 🚲 鹈鹕骑自行车 | 海岸公路休闲骑行 | `pelican-bike/` | 11 个 JS 模块 | ~800 KB | [swift-river-20ac.page.stepcloud.com](https://swift-river-20ac.page.stepcloud.com) |
+| 🔫 穿越火线·运输船 | FPS 团队枪战 | `cf-transport-ship/` | 18 个 JS 模块 + HTML/CSS | ~840 KB | [bright-otter-543b.page.stepcloud.com](https://bright-otter-543b.page.stepcloud.com) |
+| 🏎️ QQ 飞车 | 竞速漂移 racing | `qq-speed/` | 15 个 JS 模块 + HTML | ~700 KB | [bright-cedar-2ac7.page.stepcloud.com](https://bright-cedar-2ac7.page.stepcloud.com) |
 
 ### 🚲 鹈鹕骑自行车
 
@@ -93,13 +93,13 @@
 > 尽可能真实地还原 QQ 飞车中的游戏地图。我需要一个真实的 QQ 飞车游戏，包括游戏的各种键位以及漂移玩法,生成一个3D 页面，尽可能发挥你的所有能力。
 > 做完之后上传到 CDN 上 把链接发给我
 
-## 上游在线体验
+## 在线体验
 
 | 游戏 | 地址 |
 | --- | --- |
-| 鹈鹕骑自行车 | <https://claude-opus-5-5.riba2534.cn/> |
-| 穿越火线·运输船 | <https://claude-opus-5-5-cf-transport-ship.pages.dev> |
-| QQ 飞车 | <https://claude-opus-5-5-qqfeiche3d.pages.dev/> |
+| 鹈鹕骑自行车 | <https://swift-river-20ac.page.stepcloud.com> |
+| 穿越火线·运输船 | <https://bright-otter-543b.page.stepcloud.com> |
+| QQ 飞车 | <https://bright-cedar-2ac7.page.stepcloud.com> |
 
 ## 本地构建
 
