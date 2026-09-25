@@ -14,7 +14,7 @@
 | 穿越火线·运输船 | `static-assets/cf-transport-ship/` | `static-assets/cf-transport-ship.zip` |
 | QQ 飞车 | `static-assets/qq-speed/` | `static-assets/qq-speed.zip` |
 
-每个目录和 ZIP 中都只有一个自包含的 `index.html`。分别把目录内容或对应 ZIP 部署到三个静态站点的根目录即可，不需要 Node.js 服务端，也没有聚合首页。
+这六个文件已包含在仓库中；每个目录和 ZIP 中都只有一个自包含的 `index.html`。分别把目录内容或对应 ZIP 部署到三个静态站点的根目录即可，不需要 Node.js 服务端，也没有聚合首页。
 
 <p align="center">
   <b>一句话提示词 · One Shot —— Claude Opus 5.5 代码生成能力实测</b>
